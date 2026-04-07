@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Gestión GDE - Marzo 2026</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root {
+--primary-blue: #2271B3;
+--accent-green: #76B852;
+--bg-gray: #f8f9fa;
+}
+
+body { 
+font-family: 'Open Sans', sans-serif; 
+background-color: var(--bg-gray); 
+color: #333;
+line-height: 1.6;
+}
+
+.report-page {
+max-width: 900px;
+margin: 40px auto;
+background: white;
+padding: 60px;
+box-shadow: 0 0 15px rgba(0,0,0,0.1);
+border-radius: 4px;
+}
+
+.header-border {
+border-left: 6px solid var(--primary-blue);
+padding-left: 20px;
+margin-bottom: 40px;
+}
+
+h1 { font-family: 'Montserrat', sans-serif; color: var(--primary-blue); font-size: 2rem; }
+h2 { font-family: 'Montserrat', sans-serif; color: var(--primary-blue); font-size: 1.5rem; margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+
+.nav-tabs .nav-link { color: var(--primary-blue); font-weight: 600; border: none; }
+.nav-tabs .nav-link.active { border-bottom: 3px solid var(--primary-blue); }
+
+.highlight-card {
+background-color: #eef7fb;
+border-radius: 8px;
+padding: 20px;
+margin: 20px 0;
+border-right: 4px solid var(--accent-green);
+}
+
+.data-heavy { font-weight: 700; color: var(--primary-blue); }
+.growth-badge { color: var(--accent-green); font-weight: 800; }
+
+.chart-container { height: 300px; margin-bottom: 30px; }
+
+.kpi-card {
+background-color: #eef7fb;
+border-radius: 8px;
+padding: 20px;
+text-align: center;
+}
+
+.kpi-value {
+font-size: 1.8rem;
+font-weight: 700;
+color: var(--primary-blue);
+}
+
+.kpi-label {
+font-size: 0.9rem;
+color: #666;
+}
+
+footer { margin-top: 50px; font-size: 0.8rem; color: #777; border-top: 1px solid #eee; padding-top: 20px; }
+</style>
+</head>
+
+<body>
+
+<div class="report-page">
+
+<div class="header-border">
+<h1>Informe de Gestión y Análisis GDE</h1>
+<p class="lead">Marzo 2026</p>
+</div>
+
+<!-- KPIs -->
+<div class="row mb-4">
+<div class="col-md-4">
+<div class="kpi-card">
+<div class="kpi-value">3.382</div>
+<div class="kpi-label">Expedientes Totales</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="kpi-card">
+<div class="kpi-value">31%</div>
+<div class="kpi-label">Incremento interanual</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="kpi-card">
+<div class="kpi-value">126.164</div>
+<div class="kpi-label">Documentos marzo 2026</div>
+</div>
+</div>
+</div>
+
+<!-- SOLAPAS -->
+<ul class="nav nav-tabs mt-4" role="tablist">
+<li class="nav-item">
+<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#inicio">Inicio</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="tab" data-bs-target="#tramites">Expediente Electrónico</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="tab" data-bs-target="#documentos">Documentos Oficiales</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="tab" data-bs-target="#mesa">Mesa de Ayuda</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" data-bs-toggle="tab" data-bs-target="#capacitacion">Capacitación e implementación</button>
+</li>
+</ul>
+
+<div class="tab-content p-4 border border-top-0 rounded-bottom">
+
+<!-- INICIO -->
+<div class="tab-pane fade show active" id="inicio">
+<p>
+Resumen informe de gestión detallado sobre el funcionamiento y la evolución del sistema de Gestión Documental Electrónica (GDE) durante marzo de 2026. El rendimiento actual con años anteriores, destaca un crecimiento significativo en la generación de documentos oficiales y en la tramitación de expedientes electrónicos.
+</p>
+
+<div class="text-center mt-4">
+<img src="https://drive.google.com/uc?export=view&id=1S2GpOXT-q3kYfAvAHEY3qCCmiWyEJJo4" class="img-fluid rounded shadow-sm">
+</div>
+</div>
+
+<!-- TRAMITES -->
+<div class="tab-pane fade" id="tramites">
+<h2>Gestión de Trámites</h2>
+
+<div class="highlight-card">
+Durante el período de marzo de 2026 se contabilizaron un total de <span class="data-heavy">3.382 expedientes</span>, lo que representa un incremento del <span class="growth-badge">31%</span> (802 expedientes más) en comparación con los 2.580 registrados en marzo de 2025. 
+</div>
+
+<div class="chart-container">
+<canvas id="chartTramites"></canvas>
+</div>
+
+<p>De este volumen total, la mayor parte corresponde a los mencionados Trámites transversales (de uso genérico), alcanzando los <span class="data-heavy">2.024 expedientes</span>, mientras que los 1.358 expedientes restantes corresponden a trámites "Propios" o específicos.</p>
+
+<div class="text-center mt-4">
+<img src="https://drive.google.com/uc?export=view&id=1TRRIeDW3mgxulqFLORvXGNPrcjmJ5Do8" class="img-fluid rounded shadow-sm">
+</div>
+</div>
+
+<!-- DOCUMENTOS -->
+<div class="tab-pane fade" id="documentos">
+<h2>Documentos Oficiales (GEDO)</h2>
+
+<p>La cantidad de documentos oficiales generados en el sistema experimentó un crecimiento constante y significativo durante el primer trimestre de 2026 en comparación con los mismos meses del año 2025.</p>
+
+<div class="chart-container">
+<canvas id="chartDocumentos"></canvas>
+</div>
+
+<p>Al analizar la evolución mes a mes, se evidencia una clara tendencia al alza:</p>
+
+<ul>
+<li><strong>Enero:</strong> El volumen total de documentos pasó de 83.375 (2025) a 94.820 (2026) (+14%).</li>
+<li><strong>Febrero:</strong> Subió de 91.543 (2025) a 101.776 (2026) (+11%).</li>
+<li><strong>Marzo:</strong> Salto pronunciado de 82.270 (2025) a 126.164 (2026), un incremento del <span class="growth-badge">53%</span>, lo que se traduce en 43.894 documentos más en un solo mes.</li>
+</ul>
+
+<p>El crecimiento interanual del <span class="growth-badge">53%</span> en la generación de documentos oficiales refleja el momento de mayor expansión en la adopción del sistema de Gestión Documental Electrónica (GDE) durante el período analizado.</p>
+
+<div class="text-center mt-4">
+<img src="https://drive.google.com/uc?export=view&id=1Vej4SCNeRJpdXIwDfYJh6Se-7kRsPmPj" class="img-fluid rounded shadow-sm">
+</div>
+</div>
+
+<!-- MESA DE AYUDA -->
+<div class="tab-pane fade" id="mesa">
+<p>
+Se presenta la medición de las consultas ingresadas a la Mesa de Ayuda de la Secretaría de Modernización, con el objetivo de analizar la demanda de soporte vinculada al uso del sistema de Gestión Documental Electrónica (GDE).
+</p>
+
+<div class="text-center mt-4">
+<img src="https://drive.google.com/uc?export=view&id=1lo8pRdFPdiF4TWXUNM3Vk-nmTX6McNPj" class="img-fluid rounded shadow-sm">
+</div>
+</div>
+
+<!-- CAPACITACION -->
+<div class="tab-pane fade" id="capacitacion">
+<p>
+El lanzamiento del curso Formación de usuarios en el Sistema de Gestión Documental Electrónica (GDE) en la plataforma IPAP con dos aulas disponibles, cuya temática corresponde a Módulos CCOO, GEDO, EE con un total de 916 inscritos por aula.
+Cohorte 1: Inscripción 12 al 19 de marzo
+Cursado: 20 de marzo al 17 de abril
+</p>
+
+<p><strong>Caso: Experiencia de implementación y capacitación - Proceso de viático</strong></p>
+
+<div class="text-center mt-4">
+<img src="https://drive.google.com/uc?export=view&id=1vRL-evONMPNmajPEau3Xzj3K2Q4J3lJK" class="img-fluid rounded shadow-sm">
+</div>
+</div>
+
+</div>
+
+<footer>
+<strong>Fuente:</strong> Informe de Servicio GDERN-IFSERVICIO-GDERN-501657-06-COORDINACIÓN GDE 10.
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const ctxTramites = document.getElementById('chartTramites').getContext('2d');
+new Chart(ctxTramites, {
+type: 'bar',
+data: {
+labels: ['Marzo 2025', 'Marzo 2026'],
+datasets: [{
+label: 'Total Expedientes',
+data: [2580, 3382],
+backgroundColor: ['#b3d9ff', '#2271B3'],
+borderRadius: 5
+}]
+},
+options: { responsive: true, maintainAspectRatio: false }
+});
+
+const ctxDocs = document.getElementById('chartDocumentos').getContext('2d');
+new Chart(ctxDocs, {
+type: 'line',
+data: {
+labels: ['Enero', 'Febrero', 'Marzo'],
+datasets: [
+{ label: '2025', data: [83375, 91543, 82270], borderColor: '#ccc' },
+{ label: '2026', data: [94820, 101776, 126164], borderColor: '#76B852' }
+]
+},
+options: { responsive: true, maintainAspectRatio: false }
+});
+</script>
+
+</body>
+</html>
